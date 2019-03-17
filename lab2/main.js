@@ -70,17 +70,17 @@ function findById(id) {
 };
 
 function findByName(name) {
-    return weapons.find(weapon => weapon.name === name);
+    return weapons.filter(weapon => weapon.name === name);
 };
 
 function findByType(type) {
-    return weapons.find(weapon => weapon.type === type);
+    return weapons.filter(weapon => weapon.type === type);
 };
 
 function findAutomatic() {
-    return weapons.find(weapon => weapon.automatic === true);
+    return weapons.filter(weapon => weapon.automatic === true);
 };
 
 function findNonAutomatic() {
-    return weapons.find(weapon => weapon.automatic === false);
+    return weapons.filter(weapon => weapon.automatic === false);
 };
