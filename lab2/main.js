@@ -39,7 +39,7 @@ function addWeapon(weapon) {
     } else {
         console.log("This weapon already exists.");
     }
-};
+}
 
 function updateWeapon(weapon) {
     var foundIndex = weapons.find(weapon => weapon.id === id);
@@ -49,7 +49,7 @@ function updateWeapon(weapon) {
         weapons[foundIndex] = weapon;
         console.log("Weapon updated.");
     }
-};
+}
 
 function deleteWeapon(weapon) {
     const index = weapons.indexOf(weapon);
@@ -63,24 +63,24 @@ function deleteWeapon(weapon) {
 
 function deleteLastWeapon() {
     weapons.pop();
-};
+}
 
 function findById(id) {
     return weapons.find(weapon => weapon.id === id);
-};
+}
 
 function findByName(name) {
     return weapons.filter(weapon => weapon.name === name);
-};
+}
 
 function findByType(type) {
     return weapons.filter(weapon => weapon.type === type);
-};
+}
 
 function findAutomatic() {
     return weapons.filter(weapon => weapon.automatic === true);
-};
+}
 
 function findNonAutomatic() {
     return weapons.filter(weapon => weapon.automatic === false);
-};
+}
