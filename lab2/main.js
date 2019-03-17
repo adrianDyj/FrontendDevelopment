@@ -1,4 +1,5 @@
 var shotgun = {
+    id: 1,
     name: "Shotgun",
     type: "Firearm",
     ammo: 5,
@@ -6,6 +7,7 @@ var shotgun = {
 };
 
 var desertEagle = {
+    id: 2,
     name: "DesertEagle",
     type: "Firearm",
     ammo: 15,
@@ -13,6 +15,7 @@ var desertEagle = {
 };
 
 var uzi = {
+    id: 3,
     name: "Uzi",
     type: "Firearm",
     ammo: 25,
@@ -20,6 +23,7 @@ var uzi = {
 };
 
 var ak47 = {
+    id: 4,
     name: "AK-47",
     type: "Firearm",
     ammo: 35,
@@ -31,28 +35,38 @@ var weapons = [shotgun, desertEagle, uzi];
 function addWeapon(weapon) {
     if (weapons.indexOf(weapon) === -1) {
         weapons.push(weapon);
-        console.log("Item added.")
+        console.log("Weapon added.")
     } else {
-        console.log("This item already exists.");
+        console.log("This weapon already exists.");
     }
 };
 
-function updateWeapon() {
-
+function updateWeapon(weapon) {
+    var foundIndex = weapons.find(weapon => weapon.id === id);
+    if (foundIndex === -1) {
+        console.log("Weapon doesn't exists.")
+    } else {
+        weapons[foundIndex] = weapon;
+        console.log("Weapon updated.");
+    }
 };
 
 function deleteWeapon(weapon) {
     const index = weapons.indexOf(weapon);
     if (index === -1) {
-        console.log("Item doesn't exists.")
+        console.log("Weapon doesn't exists.")
     } else {
         weapons.splice(index, 1);
-        console.log("Item removed.")
+        console.log("Weapon removed.")
     }
 }
 
 function deleteLastWeapon() {
     weapons.pop();
+};
+
+function findById(id) {
+    return weapons.find(weapon => weapon.id === id);
 };
 
 function findByName(name) {
