@@ -31,15 +31,25 @@ var weapons = [shotgun, desertEagle, uzi];
 function addWeapon(weapon) {
     if (weapons.indexOf(weapon) === -1) {
         weapons.push(weapon);
-        console.log("Item added!")
+        console.log("Item added.")
     } else {
-        console.log("This item already exists!");
+        console.log("This item already exists.");
     }
 };
 
 function updateWeapon() {
 
 };
+
+function deleteWeapon(weapon) {
+    const index = weapons.indexOf(weapon);
+    if (index === -1) {
+        console.log("Item doesn't exists.")
+    } else {
+        weapons.splice(index, 1);
+        console.log("Item removed.")
+    }
+}
 
 function deleteLastWeapon() {
     weapons.pop();
