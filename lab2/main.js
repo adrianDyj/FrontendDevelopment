@@ -70,7 +70,3 @@ function findAutomatic() {
 function findNonAutomatic() {
     return weapons.find(weapon => weapon.automatic === false);
 };
-
-function main() {
-    consol.log(findByName("shotgun"));
-};
