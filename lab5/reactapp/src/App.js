@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
-import WeaponList from './components/WeaponList/WeaponList.jsx';
-import WeaponDetails from './components/WeaponDetails/WeaponDetails.jsx'
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <WeaponList />
-        <WeaponDetails />
+      <div className="App">
+        <header className="App-header">
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </header>
       </div>
     );
   }
