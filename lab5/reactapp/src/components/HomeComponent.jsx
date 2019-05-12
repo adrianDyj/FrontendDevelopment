@@ -19,7 +19,9 @@ export class HomeComponent extends Component {
 
     tick() {
         this.setState({
-            activeWeapon: (this.state.activeWeapon + 1) % this.state.weapons.length
+            activeWeapon: 
+            (this.state.activeWeapon + 1) 
+            % this.state.weapons.length
         })
     }
 

@@ -40,13 +40,8 @@ export class WeaponBase {
         return false
     }
 
-    addWeapon(name, type, ammo, automatic) {
-        let weapon = new Weapon(name, type, ammo, automatic)
-        if (this.exists(weapon)) {
-            console.log("Weapon already exists")
-            return
-        }
-        this.weapons.push(weapon)
+    getWeapons() {
+        return this.weapons
     }
 
     removeWeapon(weapon) {
@@ -54,8 +49,13 @@ export class WeaponBase {
         this.weapons.splice(index, 1)
     }
 
-    getWeapons() {
-        return this.weapons
+    addWeapon(name, type, ammo, automatic) {
+        let weapon = new Weapon(name, type, ammo, automatic)
+        if (this.exists(weapon)) {
+            console.log("Weapon already exists")
+            return
+        }
+        this.weapons.push(weapon)
     }
 
 }
