@@ -12,15 +12,15 @@ export class HomeComponent extends Component {
         this.weaponBase = new WeaponBase()
         this.state = {
             weapons: this.weaponBase.getWeapons(),
-            activeWeapon: 0
+            actualWeapon: 0
         }
         
     }
 
     tick() {
         this.setState({
-            activeWeapon: 
-            (this.state.activeWeapon + 1) 
+            actualWeapon: 
+            (this.state.actualWeapon + 1) 
             % this.state.weapons.length
         })
     }
@@ -37,7 +37,7 @@ export class HomeComponent extends Component {
         return (
             <div> 
                 <Weapons weapons={this.state.weapons}/> 
-                <WeaponDetails weapon={this.state.weapons[this.state.activeWeapon]}/>
+                <WeaponDetails weapon={this.state.weapons[this.state.actualWeapon]}/>
             </div>
         )
 
