@@ -14,13 +14,13 @@ app.get('/api/weapons/all', (req, res) => {
 });
 
 app.get('/api/weapon', (req, res) => {
-    res.send("Weapon has been added!");
+    res.send(req.body.weapon);
 });
 
 app.post('/api/weapon', (req, res) => {
     const weapon = req.body.weapon;
     weapons.push(weapon);
-    res.send({"Result": result});
+    res.send("Weapon has been added!");
 });
 
 app.delete('/api/weapon', (req, res) => {
