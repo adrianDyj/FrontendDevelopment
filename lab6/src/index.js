@@ -7,7 +7,18 @@ const port = 4000;
 
 app.use(cors());
 app.use(bodyParser.json());
-const weapons = [];
+const weapons = [(
+    "Ak-47",
+    30
+),
+(
+    "Shotgun",
+    3
+),
+(
+    "Desert Eagle",
+    20
+)];
 
 app.get('/api/', (req, res) => res.send('Hi there!!!'));
 

@@ -17,7 +17,7 @@ class Weapon extends React.Component {
     }
 
     async fetchWeapons() {
-        const values = await axios.get("http://localhost:4000/api/weapons/all")
+        const values = await axios.get("http://localhost:4000/api/weapons/all");
         console.log(values);
         this.setState({weapons: values.data})
     }
