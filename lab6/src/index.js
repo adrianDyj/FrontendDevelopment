@@ -2,42 +2,38 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const app = express();
-const port = 4000;
+const app = new express()
+const port = 4000
 
 app.use(cors());
-app.use(bodyParser.json());
-const weapons = [(
-    "Ak-47",
-    30
-),
-(
-    "Shotgun",
-    3
-),
-(
-    "Desert Eagle",
-    20
-)];
+app.use(bodyParser.json())
 
-app.get('/api/', (req, res) => res.send('Hi there!!!'));
+app.get('/api/', (req, res) => res.send('Hello'))
 
-app.get('/api/weapons/all', (req, res) => {
-    res.send(weapons);
-});
+app.get('/api/weapons/all', (req, res) => res.send(axios.get(`${URL}/weapons/all`)
+  .then(res => res.data)))
 
-app.get('/api/weapon', (req, res) => {
-    res.send(req.body.weapon);
-});
+app.post('/api/weapons', (req, res) => {
+  var weapon = new Weapon(
+    name,
+    ammo
+  )
+  var result = axios.post(`${URL}/weapons`, weapon).then(res => res.data)
+  res.send({ "result": result })
+})
 
-app.post('/api/weapon', (req, res) => {
-    const weapon = req.body.weapon;
-    weapons.push(weapon);
-    res.send("Weapon has been added!");
-});
+app.put('/api/weapons/:weaponName', (req, res) => {
+  var weapon = new Weapon(
+    name,
+    ammo
+  )
+  var result = axios.put(`${URL}/weapons/${weaponName}`, weapon).then(res => res.data)
+  res.send({ "result": result })
+})
 
-app.delete('/api/weapon', (req, res) => {
-    res.send("Unsupported.");
-});
+app.delete('/api/weapons/:weaponName', (req, res) => {
+  var result = axios.delete(`${URL}/weapons/${weaponName}`).then(res => res.data)
+  res.send({ "result": result })
+})
 
-app.listen(port, () => console.log('Example app listening on port ' + port));
+app.listen(port, () => console.log(`App listening on port ${port}`))

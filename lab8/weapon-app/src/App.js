@@ -1,28 +1,32 @@
 import React, { Component } from 'react';
 import './App.css';
+import WeaponService from './service/WeaponService'
 
 import AddWeapon from './component/AddWeapon'
 import WeaponItem from './component/WeaponItem'
+import Axios from 'axios';
 
-const weapons = [
-  {
-    name: 'Ak-47',
-    ammo: 32 
-  },
-  {
-    name: 'Shotgun',
-    ammo: 2
-  }
-]
+// const weapons = [
+//   {
+//     name: 'Ak-47',
+//     ammo: 32 
+//   },
+//   {
+//     name: 'Shotgun',
+//     ammo: 2
+//   }
+// ]
 
-localStorage.setItem('weapons', JSON.stringify(weapons))
+// localStorage.setItem('weapons', JSON.stringify(weapons))
 
 class App extends Component {
   constructor(props) {
     super(props);
 
+    this.service = new WeaponService();
+
     this.state = {
-      weapons: JSON.parse(localStorage.getItem('weapons'))
+      weapons: []
     };
 
     this.onAdd = this.onAdd.bind(this);
@@ -31,34 +35,48 @@ class App extends Component {
   }
 
   componentWillMount() {
-    const weapons = this.getWeapons();
+    Axios.get(`http://localhost:4000/api/weapons/all`)
+            .then((response) => {
+              this.setState({
+                weapons: response.data
+              })
+            });
+    // const weapons = this.getWeapons();
 
-    this.setState({ weapons });
+    // this.setState({ weapons });
   }
 
   getWeapons() {
-    return this.state.weapons;
+    var weapons =  this.service.getWeapons()
+    this.setState({ weapons: weapons})
   }
 
   onDelete(name) {
-    const weapons = this.getWeapons();
+    // const weapons = this.getWeapons();
 
-    const filteredWeapons = weapons.filter(weapon => {
-      return weapon.name !== name;
-    });
+    // const filteredWeapons = weapons.filter(weapon => {
+    //   return weapon.name !== name;
+    // });
 
-    this.setState({ weapons: filteredWeapons });
+    this.service.deleteWeapon(name);
+
+    // this.setState({ weapons: this.service.getWeapons() });
   }
 
   onAdd(name, ammo) {
-    const weapons = this.getWeapons();
+    // const weapons = this.getWeapons();
     
-    weapons.push({
-      name,
-      ammo
+    // weapons.push({
+    //   name,
+    //   ammo
+    // });
+
+    this.service.addWeapon({
+      name: name,
+      ammo: ammo
     });
 
-    this.setState({ weapons });
+    this.setState({ weapons: this.service.getWeapons() });
   }
 
   onEditSubmit(name, ammo, originalName) {

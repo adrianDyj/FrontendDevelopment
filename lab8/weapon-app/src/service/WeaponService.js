@@ -1,3 +1,4 @@
+import { Weapon } from '../model/weapon';
 const axios = require('axios')
 const BaseUrl = 'http://localhost:4000/api'
 
@@ -18,8 +19,8 @@ export class WeaponService {
             .then(res => res.data)
     }
 
-    async addWeapon(weapon) {
-        return await axios.post(`${BaseUrl}/weapons`, weapon)
+    async addWeapon(name) {
+        return await axios.post(`${BaseUrl}/weapon`, name)
             .then(res => res.data)
     }
 
