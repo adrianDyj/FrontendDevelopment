@@ -41,7 +41,7 @@ export class WeaponService {
         return true
     }
 
-    updateWeapon(weapon, weaponName) {
+    editWeapon(weapon, weaponName) {
         var weaponIndex = this.weapons.findIndex(item => item.name === weaponName)
         if (weaponIndex === -1)
             return false

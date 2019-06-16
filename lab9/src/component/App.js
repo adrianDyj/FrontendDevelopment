@@ -78,7 +78,7 @@ export class App extends Component {
     render() {
         return(
             <div className="App">
-                <h2>Weapon Base</h2>
+                <h2>Weapon Manager</h2>
                 <AddWeapon title="Create" onSubmitClicked={this.onSubmitClicked} />
                 <WeaponDetails 
                     weapon={this.state.weapons[this.state.actualWeapon]} 
