@@ -47,9 +47,11 @@ export class AddWeapon extends Component {
             <h2>{title}</h2>
             <form onSubmit={this.onSubmitClicked}>
                 <label>Name</label><br/>
-                <input value={this.state.weaponName} onChange={event => this.setState({weaponName: event.target.value})}></input><br/>
+                <input value={this.state.weaponName} onChange={event => 
+                    this.setState({weaponName: event.target.value})}></input><br/>
                 <label>Ammo</label><br/>
-                <input value={this.state.weaponAmmo} onChange={event => this.setState({weaponAmmo: event.target.value})}></input><br/>
+                <input value={this.state.weaponAmmo} onChange={event => 
+                    this.setState({weaponAmmo: event.target.value})}></input><br/>
                 <button>Submit</button>
             </form>
         </div>)

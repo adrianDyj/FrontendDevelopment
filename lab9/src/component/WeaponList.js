@@ -8,7 +8,8 @@ export class WeaponList extends Component {
             <div>
                 <ul>
                     {this.props.weapons.map( weapon => 
-                        <li key={weapon.name} onClick={() => this.props.onClick(this.props.weapons.indexOf(weapon))}>{weapon.name}</li>
+                        <li key={weapon.name} onClick={() => 
+                            this.props.onClick(this.props.weapons.indexOf(weapon))}>{weapon.name}</li>
                     )}
                 </ul>
             </div>
